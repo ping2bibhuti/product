@@ -1,0 +1,27 @@
+# Python virtual environment
+myenv/
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environment variables and secrets
+.env
+.env.*
+
+# React dependencies
+frontend/node_modules/
+
+# React build files
+frontend/dist/
+frontend/build/
+
+# IDE files
+.vscode/
+.idea/
+
+# Operating system
+.DS_Store
+Thumbs.db

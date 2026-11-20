@@ -1,0 +1,226 @@
+
+body {
+  background-color: #f4f6fb;
+  font-family: Arial, sans-serif;
+  color: #263238;
+}
+
+/* Main card */
+.product-list-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Heading */
+.product-list-card h3 {
+  color: #24324b;
+  font-size: 24px;
+}
+
+/* product avatar */
+.product-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #e8edff;
+  color: #3458db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* Table */
+.product-list-card .table {
+  margin-bottom: 0;
+}
+
+.product-list-card .table thead th {
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 16px;
+  white-space: nowrap;
+}
+
+.product-list-card .table tbody td {
+  padding: 16px;
+}
+
+.product-list-card .table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+/* Buttons */
+.product-list-card .btn {
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* Search */
+.product-list-card .form-control,
+.product-list-card .input-group-text {
+  border-color: #dee2e6;
+}
+
+.product-list-card .form-control:focus {
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.12);
+}
+
+/* Mobile responsive */
+@media (max-width: 576px) {
+
+  .product-list-card {
+    padding: 15px;
+  }
+
+  .product-list-card h3 {
+    font-size: 20px;
+  }
+
+  .product-list-card .table {
+    min-width: 600px;
+  }
+
+}
+
+
+/* Page Header */
+.product-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.product-page-header h2 {
+  color: #24324b;
+  font-size: 28px;
+}
+
+.product-page-header p {
+  font-size: 14px;
+}
+
+/* Add product Card */
+.add-product-card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #edf0f5;
+}
+
+/* Add product Icon */
+.add-product-icon {
+  width: 48px;
+  height: 48px;
+  background: #e8edff;
+  color: #0d6efd;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 23px;
+}
+
+/* Input */
+.add-product-card .form-control {
+  border-radius: 8px;
+  border-color: #dee2e6;
+  font-size: 15px;
+}
+
+.add-product-card .form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.12);
+}
+
+/* Button */
+.add-product-card .btn-primary {
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.add-product-card .btn-primary:hover {
+  background: #084fc7;
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .product-page-header h2 {
+    font-size: 22px;
+  }
+
+  .add-product-card {
+    padding: 18px;
+  }
+}
+
+
+/* DELETE MODAL OVERLAY */
+.delete-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1055;
+  padding: 15px;
+}
+
+/* DELETE MODAL */
+.delete-modal {
+  background: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  padding: 35px 30px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: modalFadeIn 0.25s ease;
+}
+
+/* DELETE ICON */
+.delete-modal-icon {
+  width: 70px;
+  height: 70px;
+  background: #fee2e2;
+  color: #dc3545;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  font-size: 28px;
+}
+
+/* MODAL ANIMATION */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 480px) {
+  .delete-modal {
+    padding: 25px 18px;
+  }
+}
+
+
