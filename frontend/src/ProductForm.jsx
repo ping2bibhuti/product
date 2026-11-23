@@ -11,6 +11,8 @@ function ProductForm({ dispatch, product, onCancel }) {
 
   const [error, setError] = useState("");
 
+  const [successMessage, setSuccessMessage] = useState("");
+
   const nameInputRef = useRef(null);
   const formRef = useRef(null);
 
@@ -22,7 +24,6 @@ function ProductForm({ dispatch, product, onCancel }) {
     setQuantity("");
     setError("");
   };
-
 
   // LOAD DATA FOR EDIT
   useEffect(() => {
@@ -96,6 +97,9 @@ function ProductForm({ dispatch, product, onCancel }) {
           type: "UPDATE_PRODUCT",
           payload: res.data,
         });
+
+        setSuccessMessage("Product updated successfully");
+
       } else {
         // ADD PRODUCT
         const res = await axios.post(API, productData);
@@ -104,6 +108,8 @@ function ProductForm({ dispatch, product, onCancel }) {
           type: "ADD_PRODUCT",
           payload: res.data,
         });
+
+        setSuccessMessage("Product added successfully");
       }
 
       resetForm();
@@ -122,17 +128,27 @@ function ProductForm({ dispatch, product, onCancel }) {
     }
   };
 
+  // Hide success message after 3 seconds
+  setTimeout(() => {
+    setSuccessMessage("");
+  }, 10000);
+
   return (
     <div className="container py-4">
       {/* PAGE HEADER */}
-      <div className="product-page-header mb-4">
-        <div>
-          <h2 className="fw-bold mb-1">Product Management</h2>
+      <div className="row">
+        <div className="col-lg-4">
+          <div className="product-page-header mb-4">
+            <div>
+              <h2 className="fw-bold mb-1">Product Management</h2>
 
-          <p className="text-muted mb-0">
-            Manage and organize your products efficiently
-          </p>
+              <p className="text-muted mb-0">
+                Manage and organize your products efficiently
+              </p>
+            </div>
+          </div>
         </div>
+        <div className="col-lg-8"></div>
       </div>
 
       {/* ADD / EDIT PRODUCT CARD */}
@@ -141,21 +157,32 @@ function ProductForm({ dispatch, product, onCancel }) {
         ref={formRef}
         style={{ scrollMarginTop: "20px" }}
       >
-        <div className="d-flex align-items-center gap-3 mb-4">
-          <div className="add-product-icon">
-            <i
-              className={`bi ${product ? "bi-pencil-square" : "bi-person-plus-fill"}`}
-            ></i>
+        <div className="row">
+          <div className="col-lg-4">
+            <div className="d-flex align-items-center gap-3 mb-4">
+              <div className="add-product-icon">
+                <i
+                  className={`bi ${product ? "bi-pencil-square" : "bi-person-plus-fill"}`}
+                ></i>
+              </div>
+
+              <div>
+                <h5 className="fw-bold mb-1">
+                  {product ? "Edit Product" : "Add New Product"}
+                </h5>
+
+                <p className="text-muted small mb-0">
+                  Enter the product details below
+                </p>
+              </div>
+            </div>
           </div>
-
-          <div>
-            <h5 className="fw-bold mb-1">
-              {product ? "Edit Product" : "Add New Product"}
-            </h5>
-
-            <p className="text-muted small mb-0">
-              Enter the product details below
-            </p>
+          <div className="col-lg-8">
+            {successMessage && (
+              <div className="card bg-success text-light mb-3">
+                <div className="card-body">{successMessage}</div>
+              </div>
+            )}
           </div>
         </div>
 
